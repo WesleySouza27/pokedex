@@ -3,7 +3,7 @@ import type { RootState } from '../app/store'
 import { Typography, Box, Card, CardMedia, CardContent } from '@mui/material'
 
 export function Pokedex() {
-  const favorites = useSelector((state: RootState) => state.pokemon.favorites)
+  const favorites = useSelector((state: RootState) => state.pokemon.favorites) || [] // Garante que seja um array
 
   return (
     <>
@@ -61,7 +61,10 @@ export function Pokedex() {
                 Altura: {poke.height}m
               </Typography>
               <Typography variant="body2" sx={{ marginTop: '8px' }}>
-                Habilidades: {poke.abilities.map((a) => a.ability.name).join(', ')}
+                Habilidades:{' '}
+                {Array.isArray(poke.abilities)
+                  ? poke.abilities.map(a => a.ability.name).join(', ')
+                  : 'N/A'}
               </Typography>
             </CardContent>
           </Card>

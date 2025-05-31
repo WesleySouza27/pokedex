@@ -14,7 +14,9 @@ interface Pokemon {
 export const fetchPokemons = createAsyncThunk(
   'pokemon/fetchAll',
   async (offset: number = 0): Promise<Pokemon[]> => {
-    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`)
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/pokemon`, {
+      params: { offset, limit: 10 },
+    })
     const results = await Promise.all(
       response.data.results.map(async (pokemon: { url: string }) => {
         const res = await axios.get(pokemon.url)
