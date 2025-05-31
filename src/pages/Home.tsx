@@ -30,7 +30,7 @@ export function Home() {
   return (
     <Box
       sx={{
-        background: 'linear-gradient(135deg, #ffcb05, #3b4cca)', // Degradê amarelo e azul
+        background: 'linear-gradient(135deg, #ffcb05, #3b4cca)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         minHeight: '100vh',
@@ -49,27 +49,21 @@ export function Home() {
       >
         Bem-vindo à Pokedex!
       </Typography>
-      <Box display="flex" flexWrap="wrap" gap={2} justifyContent="center">
-        {pokemons.map(poke => (
-          <Box
-            key={poke.id}
-            flex="1 1 calc(20% - 16px)"
-            maxWidth="calc(25% - 16px)"
-            sx={{
-              backgroundImage: 'url(https://wallpaperaccess.com/full/1324216.jpg)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              borderRadius: '16px',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-              transition: 'transform 0.3s',
-              '&:hover': {
-                transform: 'scale(1.05)',
-              },
-            }}
-          >
-            <PokemonCard pokemon={poke} />
-          </Box>
-        ))}
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        gap={2}
+        justifyContent="center"
+        sx={{
+          
+          padding: { xs: '8px', sm: '16px', md: '24px' }, // Padding responsivo
+          maxWidth: '1200px', // Limita a largura máxima do container
+          margin: '0 auto', // Centraliza o container
+        }}
+      >
+        {pokemons.map(pokemon => (
+        <PokemonCard key={pokemon.id} pokemon={pokemon} />
+      ))}
       </Box>
       <Box display="flex" justifyContent="center" gap={2} mt={4}>
         <Button

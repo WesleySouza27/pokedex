@@ -18,9 +18,12 @@ export function PokemonCard({ pokemon }: Props) {
   return (
     <Card
       sx={{
+        width: { xs: '100%', sm: '30%', md: '18%' },
+        minWidth: '200px',
         borderRadius: '16px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
         backgroundColor: '#f5f5f5',
+        border: '2px solid #3b4cca',
         '&:hover': {
           boxShadow: '0 8px 16px rgba(0, 0, 0, 0.3)',
         },
@@ -46,7 +49,8 @@ export function PokemonCard({ pokemon }: Props) {
         >
           {pokemon.name}
         </Typography>
-        <Box display="flex" justifyContent="space-around" mt={2}>
+        <Box display="flex" justifyContent="space-around" mt={2} sx={{gap: { xs: '8px', sm: '12px', md: '16px' },
+  }}>
           <Button
             variant="contained"
             color="primary"
@@ -54,8 +58,8 @@ export function PokemonCard({ pokemon }: Props) {
             sx={{
               backgroundColor: '#ffcb05',
               color: '#3b4cca',
-              fontSize: '0.8rem',
-              padding: '6px 12px', 
+              fontSize: { xs: '0.5rem', sm: '0.6rem', md: '0.7rem' },
+              padding: { xs: '4px 8px', sm: '6px 12px', md: '8px 16px' }, 
               '&:hover': {
                 backgroundColor: '#f5b700',
               },
@@ -70,8 +74,8 @@ export function PokemonCard({ pokemon }: Props) {
             sx={{
               backgroundColor: '#3b4cca',
               color: '#ffcb05',
-              fontSize: '0.8rem',
-              padding: '6px 12px',
+              fontSize: { xs: '0.5rem', sm: '0.6rem', md: '0.7rem' },
+              padding: { xs: '4px 8px', sm: '6px 12px', md: '8px 16px' },
               '&:hover': {
                 backgroundColor: '#2a3a8c',
               },

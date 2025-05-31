@@ -15,16 +15,24 @@ export function Pokedex() {
           color: '#ffcb05',
           fontFamily: 'Pokemon, sans-serif',
           textShadow: '2px 2px 4px #3b4cca',
+          fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
         }}
       >
         Sua Pokedex
       </Typography>
-      <Box display="flex" flexWrap="wrap" gap={2} justifyContent="center">
+      <Box display="flex" 
+            // backgroundColor="#a50707"
+            flexWrap="wrap" 
+            gap={2} 
+            justifyContent="center"
+            sx={{
+              padding: { xs: '8px', sm: '16px', md: '24px' },
+            }} >
         {favorites.map(poke => (
           <Card
             key={poke.id}
             sx={{
-              width: '300px',
+              width: { xs: '50%', sm: '30%', md: '15%' },
               borderRadius: '16px',
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
               backgroundColor: '#f5f5f5',
@@ -42,6 +50,7 @@ export function Pokedex() {
                 backgroundColor: '#f5f5f5',
                 padding: '10px',
                 borderBottom: '2px solid #3b4cca',
+                objectFit: 'contain',
               }}
             />
             <CardContent
@@ -51,16 +60,16 @@ export function Pokedex() {
                 fontFamily: 'Pokemon, sans-serif',
               }}
             >
-              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+              <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: { xs: '1rem', sm: '1.2rem' } }}>
                 {poke.name.toUpperCase()}
               </Typography>
-              <Typography variant="body2" sx={{ marginTop: '8px' }}>
+              <Typography variant="body2" sx={{ marginTop: '8px', fontSize: { xs: '0.8rem', sm: '1rem' } }}>
                 ID: {poke.id}
               </Typography>
-              <Typography variant="body2" sx={{ marginTop: '8px' }}>
+              <Typography variant="body2" sx={{ marginTop: '8px', fontSize: { xs: '0.8rem', sm: '1rem' } }}>
                 Altura: {poke.height}m
               </Typography>
-              <Typography variant="body2" sx={{ marginTop: '8px' }}>
+              <Typography variant="body2" sx={{ marginTop: '8px', fontSize: { xs: '0.8rem', sm: '1rem' } }}>
                 Habilidades:{' '}
                 {Array.isArray(poke.abilities)
                   ? poke.abilities.map(a => a.ability.name).join(', ')
